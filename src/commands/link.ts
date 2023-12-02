@@ -3,18 +3,22 @@ import DomainStore from "../utils/store";
 
 export function linkCommand(
   domainName: string,
-  projectLink: string
+  port: string,
   //   tld = SUPPORTED_TLDS.local
   //   ...args: any[]
+  options?: {
+    tld: SUPPORTED_TLDS;
+    host: string;
+  }
 ) {
   const tld = SUPPORTED_TLDS.local;
-
+  const defaultHost = "localhost";
   //   console.log({ args });
-  console.log({ domainName, projectLink, tld });
+  console.log({ domainName, port, tld, options });
   DomainStore.updateDomain(
     domainName,
     {
-      value: projectLink,
+      value: `${options?.host ?? defaultHost}:${port}`,
       tld,
     },
     true

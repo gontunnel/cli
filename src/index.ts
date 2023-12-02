@@ -54,12 +54,15 @@ program
 // });
 
 program
-  .command("link <domainName> <baseUrl>")
+  .command("link <domainName> <port>")
   .description("Create a link between a domain and a base URL.")
   .addOption(
     new Option("--tld <tld>", 'The TLD to use. Default is ".local"').choices(
       Object.keys(SUPPORTED_TLDS)
     )
+  )
+  .addOption(
+    new Option("--host <baseUrl>", "A host to use instead of localhost")
   )
   .action(linkCommand);
 // .action((domainName, baseUrl) => {
