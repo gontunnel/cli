@@ -7,7 +7,7 @@ const PORT1 = 80;
 let server: http.Server | null = null; // Store the server instance for later use
 
 // Extracted the proxy creation logic into a function for better readability
-function createProxy(): RequestHandler {
+function createProxy(verbose?: boolean): RequestHandler {
   return createProxyMiddleware({
     target: "http://localhost:3000",
     changeOrigin: true, // Necessary for virtual hosted sites
@@ -22,14 +22,14 @@ function createProxy(): RequestHandler {
 
       return url;
     },
-    // logLevel: verbose ? "debug" : "silent",
+    logLevel: verbose ? "debug" : "silent",
   });
 }
 
 // Start the server
 function startProxyServer(verbose?: boolean) {
   // Create a proxy middleware to forward requests to the Node.js server
-  const proxy = createProxy();
+  const proxy = createProxy(verbose);
 
   // Create the server with a request handler
   const serverHandler = (req: any, res: any) => {

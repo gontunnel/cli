@@ -11,7 +11,8 @@ export function startMDNS(verbose?: boolean) {
 
   mdnsInstance.on("query", function (query, rinfo) {
     query.questions.forEach(function (q) {
-      console.log("We have %s -> %s at %s", q.name, ip, rinfo.port);
+      if (verbose)
+        console.log("We have %s -> %s at %s", q.name, ip, rinfo.port);
       const domain = DomainStore.getDomain(q.name);
 
       if (!!domain) {
