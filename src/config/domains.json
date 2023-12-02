@@ -1,7 +1,0 @@
-{
-  "star": {
-    "value": "localhost:5000",
-    "tld": ".local",
-    "secure": false
-  }
-}
