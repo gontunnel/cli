@@ -4,20 +4,23 @@
 
 ## Introduction
 
-Add an introduction here
-
-Add a diagram here
-
-More description of pain points
+Tired of using localhost:3000? localhost:8000? Tired of tweaking your hosts file or dealing with complex configurations? GON simplifies the process, making it easy to work with custom domains, whether for web development, testing, or collaboration.
 
 ## What is Gon (Name subject to name)?
 
-Add a description of the package here
+GON, short for "Global On-demand Network," (actually, it is just a play on the name of one of my favourite anime characters, Gon Freecs) is a powerful devtool designed to streamline your local development environment by effortlessly linking custom domains to your local projects and seamlessly proxying them to a remote server.
 
 ```sh
     gon link wip 3000
-    -> wip.local now points to localhost:3000
+    # -> wip.local now points to localhost:3000
+    # Then run gon start
+    gon start
 ```
+
+## Key Features
+
+- Simplified Domain Linking: Use intuitive commands to link custom domains to local ports effortlessly.
+- Dynamic Subdomain Tunneling: Connect your local projects to live subdomains on our website for seamless sharing and collaboration.
 
 ## Gon CLI
 
@@ -88,5 +91,3 @@ npm i -g gon
 - Acrylic DNS for windows, DNSMasq for \*unix
 - Nginx server
 - winsw for managing windows services or node-windows npm
-
-> Please note that this project is released with a [Contributor Code of Conduct](code-of-conduct.md). By participating in this project you agree to its terms.
