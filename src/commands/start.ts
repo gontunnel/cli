@@ -1,4 +1,4 @@
-import { startProxyServer } from "../core/forward";
+import { startProxyServer } from "../core/proxy";
 import { startMDNS } from "../core/mdns";
 import { Listr, ListrLogLevels, ListrLogger, delay } from "listr2";
 
