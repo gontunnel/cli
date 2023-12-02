@@ -13,13 +13,8 @@ import { SUPPORTED_TLDS } from "./config";
 
 program
   .version("1.0.0")
-  .description("CLI tool for managing the server and custom domains.");
+  .description("Serve your projects on custom domains SUPAFAST! ⚡");
 
-program.command("dev").description("Start the server.").action(startCommand);
-program
-  .command("live")
-  .description("Forward the server to our live domain.")
-  .action(startCommand);
 program
   .command("share")
   .description("Forward the server to our live domain.")
@@ -36,22 +31,6 @@ program
   .command("restart")
   .description("Restart the server.")
   .action(restartCommand);
-
-// program
-// .command("park")
-// .description("Put the current directory on the server")
-// .action((domainName, baseUrl) => {
-//   updateHostsFile(domainName, baseUrl, "add");
-//   // restartCommand();
-// });
-
-// program
-// .command("unpark")
-// .description("Put the current directory on the server")
-// .action((domainName, baseUrl) => {
-//   updateHostsFile(domainName, baseUrl, "add");
-//   // restartCommand();
-// });
 
 program
   .command("link <domainName> <port>")

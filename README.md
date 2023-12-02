@@ -42,35 +42,25 @@ npm i -g gon
 
 | Command                                 | Description                                            | Status |
 | --------------------------------------- | ------------------------------------------------------ | ------ |
-| `gon`                                   | (Defaults to `gon setup`)                              | ❌     |
+| `gon`                                   | (Defaults to `gon setup`)                              | 🏗️     |
 | `gon help`                              | View Gon's help content                                | ✅     |
-| `gon help [command]`                    | View Gon's help content for a single command           | ❌     |
+| `gon help [command]`                    | View Gon's help content for a single command           | 🏗️     |
 | `gon init`                              | Create a new Gon config in the current directory       | ❌     |
 | └ `gon init --yes`                      | Skip the prompts and use defaults                      | ❌     |
-| `gon setup`                             | Install and configure everything needed to use gon cli | ❌     |
+| `gon setup`                             | Install and configure everything needed to use gon cli | 🏗️     |
 | `gon link [project-name] [port]`        | Link a port to a domain                                | ✅     |
+| `gon link-dir [project-name] [port]`    | Link a directory to a domain                           | ❌     |
 | `gon unlink [project-name]`             | Remove a domain                                        | ✅     |
+| `gon secure [project-name]`             | Serve a domain with HTTPS                              | ❌     |
+| `gon unsecure [project-name]`           | Serve a domain with HTTP                               | ❌     |
 | `gon clear`                             | Removes all links                                      | ✅     |
 | `gon list`                              | Lists all the links                                    | ✅     |
 | `gon links`                             | Lists all the links                                    | ❌     |
 | └ `gon links add [project-name] [port]` | Link a port to a domain                                | ❌     |
 | └ `gon links remove [project-name]`     | Remove a domain                                        | ❌     |
 | `gon start`                             | Run DNS resolver and reverse proxy server              | ✅     |
-| `gon tunnel [port]`                     | Connect a port to a live subdomain on our website      | 🖌      |
-
-### Configuration
-
-Gon config is in the root `gon.json`.
-
-For examples, for declaring workspaces in sub-directories:
-
-```json
-{
-  "star": {
-    "value": "localhost:3000"
-  }
-}
-```
+| `gon tunnel [port]`                     | Connect a port to a live subdomain on our website      | 🏗️     |
+| `gon share [port]`                      | Connect a port to a live subdomain on our website      | 🏗️     |
 
 ## Gon Desktop
 
@@ -82,9 +72,9 @@ For examples, for declaring workspaces in sub-directories:
 - [] debugging and inspect tools
 - [] Setup local dashboard
 - [] Add other TLDs besides .local
-- [] Park directories
-- [] desktop app
-- [] development templates
+- [] Serve directories
+- [] Desktop app
+- [] Development templates
 
 ### TODO
 
