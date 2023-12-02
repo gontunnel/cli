@@ -66,22 +66,21 @@ npm i -g gon
 
 ### Roadmap
 
-- [*] .local and http forwarding
-- [] https forwarding
-- [] web app and live subdomains
-- [] debugging and inspect tools
-- [] Setup local dashboard
-- [] Add other TLDs besides .local
-- [] Serve directories
-- [] Desktop app
-- [] Development templates
+- [x] .local and http forwarding
+- [ ] https forwarding
+- [ ] web app and live subdomains
+- [ ] debugging and inspect tools
+- [ ] Setup local dashboard
+- [ ] Add other TLDs besides .local
+- [ ] Serve directories
+- [ ] Desktop app
+- [ ] Development templates
 
 ### TODO
 
-- [] Add loading spinners and progress bars
-- [] Box link list
-- [] Use conf for configs
-- []
+- [ ] Add loading spinners and progress bars
+- [ ] Box link list
+- [ ] Use conf for configs
 
 ### Notes
 
