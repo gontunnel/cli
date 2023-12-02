@@ -94,7 +94,7 @@ class DomainStoreUtility {
 
     this.saveToFile();
     console.log(
-      `Domain '${domain}.${newValue?.tld}' linked to ${newValue?.value}.`
+      `Domain '${domain}${newValue?.tld}' linked to ${newValue?.value}.`
     );
   }
 
