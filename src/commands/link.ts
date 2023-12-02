@@ -13,8 +13,6 @@ export function linkCommand(
 ) {
   const tld = SUPPORTED_TLDS.local;
   const defaultHost = "localhost";
-  //   console.log({ args });
-  console.log({ domainName, port, tld, options });
   DomainStore.updateDomain(
     domainName,
     {

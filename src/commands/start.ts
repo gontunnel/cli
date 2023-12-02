@@ -2,17 +2,13 @@ import { startProxyServer } from "../core/forward";
 import { startMDNS } from "../core/mdns";
 import { Listr, ListrLogLevels, ListrLogger, delay } from "listr2";
 
-interface Ctx {
+interface StartCommandArgs {
   /* some variables for internal use */
   verbose?: boolean;
   proxy?: boolean;
 }
 
-// const logger = new ListrLogger({ useIcons: false });
-
-// logger.log(ListrLogLevels.STARTED, "Example output from a task.");
-
-const tasks = new Listr<Ctx>(
+const tasks = new Listr<StartCommandArgs>(
   [
     {
       title: "Starting DNS Server",
@@ -42,9 +38,8 @@ const tasks = new Listr<Ctx>(
     rendererOptions: { collapseSubtasks: false },
   }
 );
-export async function startCommand(args: { verbose?: boolean }) {
+export async function startCommand(args: StartCommandArgs) {
   try {
-    console.log({ args });
     await tasks.run(args);
   } catch (e) {
     console.error(e);
