@@ -36,7 +36,6 @@ class DomainStoreUtility {
       const jsonString = readFileSync(this.filePath, "utf-8");
       return JSON.parse(jsonString);
     } catch (error: any) {
-      console.log(`No domains`);
       return {};
     }
   }
@@ -51,7 +50,6 @@ class DomainStoreUtility {
       const jsonString = await fsPromises.readFile(this.filePath, "utf-8");
       return JSON.parse(jsonString);
     } catch (error: any) {
-      console.log(`No domains`);
       return {};
     }
   }

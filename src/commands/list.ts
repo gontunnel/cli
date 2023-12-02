@@ -1,14 +1,16 @@
 import chalk from "chalk";
 import DomainStore from "../utils/store";
+import { simpleLog } from "../utils/log";
 
 export function listCommand() {
-  const domains = DomainStore.getDomains();
-
-  const domainString = Object.entries(domains)
-    .map(
-      (domain) =>
-        `${chalk.blue(domain[0])} => ${chalk.underline.blue(domain[1].value)}`
-    )
-    .join("\n");
-  console.log("\n" + domainString);
+  const domains = Object.entries(DomainStore.getDomains());
+  if (domains.length === 0) return;
+  simpleLog(
+    `\n${domains
+      .map(
+        ([name, { value }]) =>
+          `${chalk.blue(name)} => ${chalk.underline.blue(value)}`
+      )
+      .join("\n")}`
+  );
 }
