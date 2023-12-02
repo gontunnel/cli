@@ -1,7 +1,6 @@
 import mdns from "multicast-dns";
 import os from "os";
 import DomainStore from "../utils/store";
-import findDomain from "../utils/findDomain";
 
 const ip: string = getIp();
 
@@ -13,7 +12,7 @@ export function startMDNS(verbose?: boolean) {
   mdnsInstance.on("query", function (query, rinfo) {
     query.questions.forEach(function (q) {
       console.log("We have %s -> %s at %s", q.name, ip, rinfo.port);
-      const domain = findDomain(q.name);
+      const domain = DomainStore.getDomain(q.name);
 
       if (!!domain) {
         if (verbose)
