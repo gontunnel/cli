@@ -40,22 +40,23 @@ npm i -g gon
 > **Note:** Gon CLI is under active development and some of these commands have
 > not yet been implemented.
 
-| Command                                 | Description                                       | Status |
-| --------------------------------------- | ------------------------------------------------- | ------ |
-| `gon`                                   | (Defaults to `gon install`)                       | ✅     |
-| `gon help`                              | View Gon's help content                           | ✅     |
-| `gon help [command]`                    | View Gon's help content for a single command      | ❌     |
-| `gon init`                              | Create a new Gon config in the current directory  | ❌     |
-| └ `gon init --yes`                      | Skip the prompts and use defaults                 | ❌     |
-| `gon install`                           | Install all the dependencies for a project        | ❌     |
-| `gon link [project-name] [port]`        | Link a port to a domain                           | ✅     |
-| `gon unlink [project-name]`             | Remove a domain                                   | ✅     |
-| `gon clear`                             | Removes all links                                 | ✅     |
-| `gon links`                             | Lists all the links                               | ❌     |
-| └ `gon links add [project-name] [port]` | Link a port to a domain                           | ❌     |
-| └ `gon links remove [project-name]`     | Remove a domain                                   | ❌     |
-| `gon start`                             | Run DNS resolver and reverse proxy server         | ✅     |
-| `gon tunnel [port]`                     | Connect a port to a live subdomain on our website | 🖌      |
+| Command                                 | Description                                            | Status |
+| --------------------------------------- | ------------------------------------------------------ | ------ |
+| `gon`                                   | (Defaults to `gon setup`)                              | ❌     |
+| `gon help`                              | View Gon's help content                                | ✅     |
+| `gon help [command]`                    | View Gon's help content for a single command           | ❌     |
+| `gon init`                              | Create a new Gon config in the current directory       | ❌     |
+| └ `gon init --yes`                      | Skip the prompts and use defaults                      | ❌     |
+| `gon setup`                             | Install and configure everything needed to use gon cli | ❌     |
+| `gon link [project-name] [port]`        | Link a port to a domain                                | ✅     |
+| `gon unlink [project-name]`             | Remove a domain                                        | ✅     |
+| `gon clear`                             | Removes all links                                      | ✅     |
+| `gon list`                              | Lists all the links                                    | ✅     |
+| `gon links`                             | Lists all the links                                    | ❌     |
+| └ `gon links add [project-name] [port]` | Link a port to a domain                                | ❌     |
+| └ `gon links remove [project-name]`     | Remove a domain                                        | ❌     |
+| `gon start`                             | Run DNS resolver and reverse proxy server              | ✅     |
+| `gon tunnel [port]`                     | Connect a port to a live subdomain on our website      | 🖌      |
 
 ### Configuration
 
