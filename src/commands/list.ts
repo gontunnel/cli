@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import DomainStore from "../utils/store";
+import DomainStore from "../core/store";
 import { simpleLog } from "../utils/log";
 
 export function listCommand() {

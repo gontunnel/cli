@@ -1,6 +1,6 @@
 import mdns from "multicast-dns";
 import os from "os";
-import DomainStore from "../utils/store";
+import DomainStore from "./store";
 
 const ip: string = getIp();
 

@@ -1,4 +1,4 @@
-import DomainStore from "../utils/store";
+import DomainStore from "../core/store";
 
 export function clearCommand() {
   DomainStore.clearDomains();

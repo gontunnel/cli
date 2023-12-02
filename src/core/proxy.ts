@@ -1,6 +1,6 @@
 import http, { IncomingMessage, ServerResponse } from "http";
 import { createProxyMiddleware, RequestHandler } from "http-proxy-middleware";
-import DomainStore from "../utils/store";
+import DomainStore from "./store";
 
 const PORT1 = 80;
 
