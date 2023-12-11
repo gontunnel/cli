@@ -1,6 +1,6 @@
 {
   "name": "@gontunnel/cli",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "> A devtool that allows you to use domains on your local machine and proxy them to a server",
   "main": "dist/index.js",
   "repository": {
@@ -18,8 +18,9 @@
     "node": ">= 16"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --removeComments",
     "setup": "tsc & npm i -g",
+    "publish": "npm run build & npm publish",
     "dev": "ts-node ./src/index.ts",
     "type-check": "tsc --noEmit"
   },
