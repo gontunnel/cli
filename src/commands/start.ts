@@ -6,6 +6,7 @@ interface StartCommandArgs {
   /* some variables for internal use */
   verbose?: boolean;
   proxy?: boolean;
+  instant?: [string, string];
 }
 
 const tasks = new Listr<StartCommandArgs>(
@@ -26,7 +27,14 @@ const tasks = new Listr<StartCommandArgs>(
           task.skip("Proxy disabled");
           return;
         }
-        startProxyServer(ctx.verbose);
+        let instantConfig = undefined;
+        if (ctx?.instant) {
+          instantConfig = {
+            name: ctx?.instant[0],
+            port: ctx?.instant[1],
+          };
+        }
+        startProxyServer(ctx.verbose, instantConfig);
         task.title = "Proxy Server Ready";
       },
     },

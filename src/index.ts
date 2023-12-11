@@ -10,6 +10,7 @@ import {
   unlinkCommand,
 } from "./commands";
 import { SUPPORTED_TLDS } from "./config";
+import { equalToSeparatedList } from "./utils/parsers";
 
 program
   .version("1.0.0")
@@ -25,6 +26,11 @@ program
   .description("Start the server.")
   .option("-v, --verbose", "Allow logging to terminal")
   .option("--no-proxy", "Disable proxy server")
+  .option(
+    "-i, --instant <config>",
+    "Run an instant config. e.g. hono=3000",
+    equalToSeparatedList
+  )
   .action(startCommand);
 program.command("stop").description("Stop the server.").action(stopCommand);
 program

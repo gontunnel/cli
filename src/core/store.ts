@@ -209,16 +209,29 @@ class DomainStoreUtility {
    * jsonData that matches the query domain name and top-level domain (tld).
    */
   getDomain(query: string) {
+    const domainParts = this.splitDomain(query);
+
+    if (!domainParts) return;
+
+    const { tld } = this.jsonData[domainParts.queryName] || {};
+
+    if (!tld) return false;
+    return tld === domainParts.queryTld
+      ? this.jsonData[domainParts.queryName]
+      : false;
+  }
+
+  splitDomain(query: string) {
     const lastDotIndex = query.lastIndexOf(".");
     if (lastDotIndex === -1) return false;
 
     const queryName = query.slice(0, lastDotIndex);
     const queryTld = query.slice(lastDotIndex);
 
-    const { tld } = this.jsonData[queryName] || {};
-
-    if (!tld) return false;
-    return tld === queryTld ? this.jsonData[queryName] : false;
+    return {
+      queryName,
+      queryTld,
+    };
   }
 }
 

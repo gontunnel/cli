@@ -7,11 +7,23 @@ const PORT1 = 80;
 let server: http.Server | null = null; // Store the server instance for later use
 
 // Extracted the proxy creation logic into a function for better readability
-function createProxy(verbose?: boolean): RequestHandler {
+function createProxy(
+  verbose?: boolean,
+  config?: {
+    name: string;
+    port: string;
+  }
+): RequestHandler {
   return createProxyMiddleware({
     target: "http://localhost:3000",
     changeOrigin: true, // Necessary for virtual hosted sites
     router: function (req: IncomingMessage) {
+      if (config) {
+        const domainParts = DomainStore.splitDomain(req.headers.host as string);
+        if (domainParts && domainParts.queryName == config.name) {
+          return `http://localhost:${config.port}`;
+        }
+      }
       const domain = DomainStore.getDomain(req.headers.host as string);
       if (!domain) return undefined;
       let url = domain.value;
@@ -27,9 +39,15 @@ function createProxy(verbose?: boolean): RequestHandler {
 }
 
 // Start the server
-function startProxyServer(verbose?: boolean) {
+function startProxyServer(
+  verbose?: boolean,
+  config?: {
+    name: string;
+    port: string;
+  }
+) {
   // Create a proxy middleware to forward requests to the Node.js server
-  const proxy = createProxy(verbose);
+  const proxy = createProxy(verbose, config);
 
   // Create the server with a request handler
   const serverHandler = (req: any, res: any) => {
